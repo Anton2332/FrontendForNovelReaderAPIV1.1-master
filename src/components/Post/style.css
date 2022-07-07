@@ -1,0 +1,8 @@
+.posts{
+    margin:25px;
+    padding: 10px;
+    border-radius: 15px;
+    border:2px blue outset;
+    color: white;
+    max-width: 250px;
+}
