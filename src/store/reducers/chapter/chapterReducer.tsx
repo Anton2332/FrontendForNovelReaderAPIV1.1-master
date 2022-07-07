@@ -24,6 +24,14 @@ export  const chapterReducer = (state = initialState, action:chapterActions) : c
             return {...state, isLoading: action.payload}
             break;
 
+        case chapterActionType.SET_CHAPTERS_ID:
+            const chapters: IChapter[] = action.payload.map(
+                item => {
+                    return {...item}
+                }
+            )as IChapter[]
+            return {...state, chaptersId:[...chapters] }
+
         default:
             return state;
     }

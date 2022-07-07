@@ -8,7 +8,6 @@ export const ChapterDetailPage: FC = () => {
     const bookId = useParams().bookId
 
 
-
     return (
         <>
             <Container>

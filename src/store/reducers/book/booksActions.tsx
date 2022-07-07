@@ -63,10 +63,10 @@ export function  fetchBooks(page:number){
             dispatch(setIsLoadingAction(true))
             const response = await booksService.getBooks(page)
             dispatch(setBooksAction(response.data.results))
-            const paged_count = 50
+            const paged_count = 2
             dispatch(setTotalPagesAction(Math.ceil(response.data.count/paged_count)))
             dispatch(setPageAction(page<=response.data.count?page:response.data.count))
-            // await Dalay.wait(1)
+            await Dalay.wait(1)
         }
         catch(e){
             dispatch(setErrorAction((e as Error).toString()))

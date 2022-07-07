@@ -4,6 +4,7 @@ import {Box, Button, CardActionArea, CardMedia, Container, Divider, Grid, Stack,
 import {Link as RouterLink} from "react-router-dom";
 import './style.css'
 import {PagenatedPostList} from "../Post/PaginatedPostList";
+import {PaginatedChapterList} from '../Chapter/PaginatedChapterList'
 
 interface IBookProps {
     book: IBookDetails
@@ -121,6 +122,7 @@ export const Book: FC<IBookProps> = ({book}) =>{
                                     </textarea>
                                 </div>
                             </div>
+                            {/*<PaginatedChapterList bookId={book.id}/>*/}
                             <PagenatedPostList/>
                         </div>
                     </div>

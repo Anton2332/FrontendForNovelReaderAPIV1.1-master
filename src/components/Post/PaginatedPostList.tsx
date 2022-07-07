@@ -22,7 +22,6 @@ export const PagenatedPostList : FC = () =>{
         fetchPosts(Number(bookId),currentPage)
         scroll.scrollToTop()
     }, [currentPage])
-    console.log(posts)
 
     return (
         <>

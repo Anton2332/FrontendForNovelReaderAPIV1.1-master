@@ -1,5 +1,12 @@
 import {IChapter} from "../../../models/IChapter";
-import {chapterActions, chapterActionType, setChapter, setChapterError, setChapterIsLoading} from "./types";
+import {
+    chapterActions,
+    chapterActionType,
+    setChapter,
+    setChapterError,
+    setChapterIsLoading,
+    setChaptersId
+} from "./types";
 import {Dispatch} from "react";
 import ChaptersService from '../../../API/chaptersService'
 
@@ -24,13 +31,21 @@ const setErrorAction = (error: string): setChapterError => {
     }
 }
 
+const setChaptersAction = (chapters: IChapter[]): setChaptersId =>{
+    return {
+        type: chapterActionType.SET_CHAPTERS_ID,
+        payload:chapters
+    }
+}
 
-export function fetchChapter(chapterId:number){
+
+export function fetchChapter(bookId:number){
     return async(dispatch:Dispatch<chapterActions>) => {
         try {
             dispatch(setIsLoadingAction(true))
-            const response = await ChaptersService.getChaptersDetail(chapterId)
-            dispatch(setChapterAction(response.data))
+            const response = await ChaptersService.getChaptersByBookId(bookId)
+            console.log(response)
+            dispatch(setChaptersAction(response))
 
         }
         catch(e) {
